@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(*Hala Shihab) CSI-242 Final Exam</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            font-size: large;
+        }
+
+        #containerNumber5 {
+            width: 300px;
+            height: 200px;
+            background-color: black;
+        }
+
+        #boxNumber5 {
+            width: 30px;
+            height: 30px;
+            background-color: aquamarine;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+
+        #inputNumber7 label,
+        #inputNumber7 input {
+            display: block;
+        }
+
+        button {
+            background-color: #4CAF50;
+            /* Green */
+            border-radius: 5px;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            transition-duration: 0.4s;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .form-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            width: 20%;
+            padding: 10px;
+            font-size: 14px;
+        }
+        small{
+            color: red;
+        }
+    </style>
+</head>
+
+<body onload="loadingPage()">
+    <h1>(*Your Name Here) CSI-242 Final Exam</h1>
+    <hr>
+    <div id="number1">
+        <h2>#1 </h2>
+        <div>
+            <p>Create a new javascript library (product.js)for a product. Within the library define an <strong>ES6 class</strong>
+                to represent a product. The product class should define the following fields:
+            <ul>
+                <li>name</li>
+                <li>price</li>
+                <li>the product constructor will take in both the name and price</li>
+            </ul>
+            Create two classes that <strong>inherit</strong> from the product class: book and movie. The book class inherits all the
+            fields from product but also adds fields:
+            <ul>
+                <li>author</li>
+                <li>yearPublished</li>
+                <li>the book constructor will take in name, price, author, yearPublished and pass name and price to the
+                    parent constructor.</li>
+            </ul>
+            The movie class <strong>inherits</strong> all fields from product but adds the fields:
+            <ul>
+                <li>director</li>
+                <li>actors: This is an array containing the names of the actors in the movie</li>
+                <li>the movie constructor will take in name, price, director and pass name and price to the parent
+                    constructor</li>
+                <li>function addActor(): This is a function which will take in the name of an actor and add them to the
+                    actors array.</li>
+            </ul>
+            When the button is clicked create two books and two movies. Add a few actors to the movies. Display the
+            books and movies in the ul below. If the product is a book display the author and the yearPublished. If the
+            product is a movie display the director and the actors in a subList.
+            </p>
+            <button id="submitNumber1" onclick="displayMovies_Books()">Display Movies and Books</button>
+            <ul id="displayNumber1">
+            </p>
+        </div>
+    </div>
+    <div id="number2">
+        <h2>#2</h2>
+        <div>
+            <p>When the button is clicked, use one of the techniques that we covered in class to connect to a free API
+                and retrieve some data(You may retrieve one record or many records, you also may choose any API that you
+                wish). Display information from the API in the displayArea.
+            </p>
+            <button id="submitNumber2" onclick="pullInfo()">Pull info from Web API</button>
+            <p id="displayNumber2"></p>
+        </div>
+    </div>
+    <div id="number3">
+        <h2>#3</h2>
+        <div>
+            <p>The odds of winning the Powerball are approximately 1 in 292,000,000. Create a promise to perform this
+                task. When the button is clicked use a promise to generate 2 random numbers between 0 and 292,000,000
+                and see if they match. If they do not match repeat the process until they do. Keep track of how many
+                attempts it takes to get a winning lottery ticket. Use the resolve method of the promise to return the
+                number of attempts and output the results.
+            </p>
+            <button id="submitNumber3" onclick="powerBallLottery()">Win the PowerBall Lottery</button>
+            <p id="displayNumber3"></p>
+        </div>
+    </div>
+    <div id="number4">
+        <h2>#4</h2>
+        <div>
+            <p>
+                The form below is a registration form for a website. When submit button is clicked stop the form from submitting the data to the server and validate the user input based on the following criteria:
+            </p>
+            <ul>
+                <li>The username must be 7 characters long</li>
+                <li>Use a regular expression (Regex) to check that the email is valid. Feel free to google a regular
+                    expression pattern to match email.</li>
+                <li>The password must be 6 characters long</li>
+                <li>Password2 must match the first password</li>
+            </ul>
+            <p>
+                If validation check on any of the inputs failed, give the input a red border and display an error
+                message inside of the small element below the input.
+            </p>
+
+            <div class="containerNumber4">
+                <form id="form" class="form" onsubmit="return(validate(event))" >
+                    <h2>Register With Us</h2>
+                    <div class="form-control">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter username" />
+                        <small id="usernameError"></small>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="Enter email" />
+                        <small id="emailError"></small>
+                    </div>
+                    <div class="form-control">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter password" />
+                        <small id="passwordError"></small>
+                    </div>
+                    <div class="form-control">
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" id="password2" placeholder="Enter password again" />
+                        <small id="password2Error"></small>
+                    </div>
+                    <button id="submitNumber4"   type="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div id="number5">
+        <h2>#5</h2>
+        <p>Below there is a container div with a box div inside of it. Create a javascript timer that starts automatically when the page loads. The timer will move the box down and to the right within the div so that it appears to be animated. When the box hits any of the walls of the div cause the box the bounce off of that wall and move in the other direction. Also when the box collides with a wall change the color of the box to a random color. Do not allow the box to move outside of the container.
+        </p>
+
+        <div id="containerNumber5">
+            <div id="boxNumber5"></div>
+        </div>
+    </div>
+    <div id="number6">
+        <h2>#6</h2>
+        <div>
+            <p>Create a contructor function that can create a Student Object. The constructor should take firstName, lastName, studentId, enrolled, and avgGrade as parameters. On load of the page create 5 Students and add them to an array of Students. When the button below is clicked display each of the Students as list items in the the ul element</p>
+            <button id="submitNumber6" onclick="displayStudents()">Display the Students</button>
+            <ul id="displayNumber6"></ul>
+        </div>
+    </div>
+    <div id="number7">
+        <h2>#7</h2>
+        <div>
+            <p>When a student in the list of #6 is clicked on load the information from that student into the inputs listed
+                below. Allow the user to change the information about that student. When the button is clicked change the
+                properties of the selected student. Update the unordered list you created in #6 with the new information.</p>
+            <div id="inputNumber7">
+                <label for="firstNameNumber7">First Name: </label><input type="text" name="" id="firstNameNumber7">
+                <label for="lastNameNumber7">Last Name: </label><input type="text" name="" id="lastNameNumber7">
+                <label for="idNumber7">Student Id: </label><input type="text" name="" id="idNumber7">
+                <label for="enrolledNumber7">Enrolled: </label><input type="checkbox" name="" id="enrolledNumber7">
+                <label for="gradeNumber7">Average Grade: </label><input type="number" name="" id="gradeNumber7">
+            </div>
+            <button id="submitNumber7" onclick="changeStudentInfo()">Change the information about the Student</button>
+        </div>
+    </div>
+    <script src="product.js"></script>
+    <script src="FinalExam.js"></script>
+</body>
+
+</html>
